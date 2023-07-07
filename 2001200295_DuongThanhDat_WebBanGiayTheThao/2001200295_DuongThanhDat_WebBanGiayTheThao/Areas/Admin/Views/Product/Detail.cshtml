@@ -1,0 +1,46 @@
+﻿@model  _2001200295_DuongThanhDat_WebBanGiayTheThao.Models.Product
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<style>
+    .button {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 15px;
+    }
+
+    .button:hover {
+            background-color: #3e8e41
+        }
+
+    .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+        }
+</style>
+<div class="row">
+    <div class="col-6">
+        <h2>@Model.Name</h2>
+        <img src="~/image/@Model.ImageUrl"  alt="@Model.ImageUrl" style="height:350px; width:350px;"/>
+    </div>
+    <div class="col-6">
+        <h4>Mã SP: @Model.Id</h4>
+        <h5 style="color:red">Giá: @Model.Price đ</h5>
+        <h5>@Model.Description</h5>
+        @*<button class="button">Mua</button>*@
+        <form class="d-flex" action="/product/index">
+            <button class="btn btn-outline-primary" type="submit">Mua</button>
+        </form>
+    </div>
+</div>
+<a href="@Url.Action("Index","Product")">Back to list of Product</a>
+

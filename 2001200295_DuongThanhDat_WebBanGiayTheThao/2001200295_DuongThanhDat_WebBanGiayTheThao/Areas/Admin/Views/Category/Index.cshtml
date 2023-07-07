@@ -1,0 +1,36 @@
+﻿@model List<_2001200295_DuongThanhDat_WebBanGiayTheThao.Models.Category>
+@{
+    ViewBag.Title = "Index";
+}
+<button type="button" id="btnGetCategory">Get Category</button>
+<table class="table catTable">
+    <tr>
+        <th>CatId</th>
+        <th>Name</th>
+
+    </tr>
+    @*@foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.CatId</td>
+                <td>@i.Name</td>
+            </tr>
+        }*@
+</table>
+<script>
+    $('#btnGetCategory').click(() => {
+        $.ajax({
+            type: 'GET',
+            url: '/api/category',
+            success: (responses) => {
+                for (var i = 0; i <= responses.lenght; i++) {
+                    const catRow = responses[i];
+                    const strHTML = '<tr><td>' + catRow.CatId + '</td><td>' + catRow.Name + '</td></tr>';
+                    $('.table catTable').append(strHTML);
+                }
+            },
+            error: (err) => { console.log(err); },
+        });
+    });
+</script>
+

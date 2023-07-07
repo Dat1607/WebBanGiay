@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<style>
+    footer {
+        text-align: center;
+        padding:40px;
+        background-color:white;
+        color:black;
+    }
+</style>
+<div class="w3-content w3-section">
+    <img class="mySlides" src="~/banner/banner(1).jpg" style="width: 100%">
+    <img class="mySlides" src="~/banner/bannner(2).jpg" style="width: 100%">
+</div>
+
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Hot 2022</h5>
+            <h1 class="display-4">Những mẫu giày bán chạy nhất</h1>
+        </div>
+        <div class="owl-carousel team-carousel position-relative">
+            <div class="team-item">
+                <div class="row g-0 bg-light rounded overflow-hidden">
+                    <div class="col-12 col-sm-5 h-100">
+                        <img class="img-fluid h-100" src="~/Image/AF1.jpg" style="height: 400px; width: 400px;">
+                    </div>
+                    <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                        <div class="mt-auto p-4">
+                            <h3>Nike Air Force 1 All White</h3>
+                            <p class="m-0">Là một biến thể của đôi giày huyền thoại của Nike...</p>
+                            <h4><a style="color: red">2500000đ</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-item">
+                <div class="row g-0 bg-light rounded overflow-hidden">
+                    <div class="col-12 col-sm-5 h-100">
+                        <img class="img-fluid h-100" src="~/Image/Blazer.jpg" style="height: 400px; width: 400px;">
+                    </div>
+                    <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                        <div class="mt-auto p-4">
+                            <h3>Nike Blazer Midd 77</h3>
+                            <p class="m-0">Dòng giày được quay trở lại trong khoảng thời gian gần đây sau...</p>
+                            <h4><a style="color: red">2500000đ</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-item">
+                <div class="row g-0 bg-light rounded overflow-hidden">
+                    <div class="col-12 col-sm-5 h-100">
+                        <img class="img-fluid h-100" src="~/Image/JD1_Grey.jpg" style="height: 400px; width: 400px;">
+                    </div>
+                    <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                        <div class="mt-auto p-4">
+                            <h3>Nike Air Jordan 1 High Grey</h3>
+                            <p class="m-0">Mẫu giày mang tên của huyền thoại ngôi sao bóng rổ Jordan. Với...</p>
+                            <h4><a style="color: red">5000000đ</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 2000); // Change image every 2 seconds
+        }
+    </script>
+    </footer>

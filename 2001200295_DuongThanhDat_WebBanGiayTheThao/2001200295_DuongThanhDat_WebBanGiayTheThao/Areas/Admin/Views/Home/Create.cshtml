@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage1.cshtml";
+}
+
+<h2>Create</h2>
+
+<form action="/admin/home/create" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="Name">Name</label>
+            <input type="text" class="form-control" id="Name" name="Name" placeholder="Name" />
+        </div>
+        <div class="col-md-6">
+            <label for="Price">Price</label>
+            <input type="number" class="form-control" id="Price" name="Price" placeholder="Price" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="Description">Description</label>
+            <input type="text" class="form-control" id="Description" name="Description" placeholder="Description" />
+        </div>
+        <div class="col-md-6">
+            <label for="ImageUrl">Image</label>
+            <input type="file" class="form-control" id="" name="ImageUrl" placeholder="ImageUrl" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label for="CatId">Category ID</label>
+            <input type="number" class="form-control" id="CatId" name="CatId" placeholder="Category ID" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Save</button>
+    <a href="/admin/product/index" class="btn btn-outline-danger">Cancel</a>
+</form>

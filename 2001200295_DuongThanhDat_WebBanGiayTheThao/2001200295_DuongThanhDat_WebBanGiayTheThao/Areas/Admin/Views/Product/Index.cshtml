@@ -1,0 +1,79 @@
+﻿@model List<_2001200295_DuongThanhDat_WebBanGiayTheThao.Models.Product>
+@{
+    ViewBag.Title = "Index";
+}
+<a href="/admin/home/create">Thêm mới sản phẩm</a>
+<select id="sortDrop" name="sortDrop">
+    <option value="">Sắp xếp theo giá</option>
+    <option value="Giam">Giảm dần</option>
+    <option value="Tang">Tăng dần</option>
+</select>
+<div class="row row-cols-1 row-cols-md-5 g-6">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <a href="/admin/product/detail/@item.Id"><img src="~/image/@item.ImageUrl" class="card-img-top" alt="@item.Name" /></a>
+            <div class="card-body">
+                <h4 class="card-title">@item.Name</h4>
+                <strong><p class="card-text" style="color:red">@item.Price đ</p></strong>
+                <p class="card-text"><small class="text-muted">Hãng: @item.Category.Name</small></p>
+                <p><a href="/admin/home/edit/@item.Id">Edit | </a><a href="/admin/home/delete/@item.Id">Delete</a></p>
+            </div>
+        </div>
+    }
+</div>
+<tr>
+    <td colspan="9">
+        @{ 
+            int PrevPage = ViewBag.Page - 1;
+            if(PrevPage<=0)
+            {
+                PrevPage = 1;
+            }
+            int NextPage = ViewBag.Page + 1;
+            if (NextPage > ViewBag.NoOfPages)
+            {
+                NextPage = ViewBag.NoOfPages;
+            }
+
+        }
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="/admin/product/index?&page=@PrevPage">
+                    Prev
+                </a>
+            </li>
+            @for (int i = 0; i < ViewBag.NoOfPages; i++)
+            {
+                if (i + 1 == ViewBag.Page)
+                {
+                    <li class="page-item active">
+                        <a class="page-link" href="/admin/product/index?&page=@(i+1)">
+                            @(i+1)
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="/admin/product/index?&page=@(i+1)">
+                            @(i+1)
+                        </a>
+                    </li>
+                }
+            }
+            <li class="page-item">
+                <a class="page-link" href="/admin/product/index?&page=@NextPage">
+                    Next
+                </a>
+            </li>
+        </ul>
+    </td>
+</tr>
+<script>
+    $('#sortDrop').change(function () {
+        const value = $('#sortDrop').val();
+        window.location.href = "/admin/product/index?sort=" + value;
+    })
+</script>
+
